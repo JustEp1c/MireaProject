@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SensorsFragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textViewGscope"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gyroscope" />
+
+    <TextView
+        android:id="@+id/GscopeX"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Изменения по X" />
+
+    <TextView
+        android:id="@+id/GscopeY"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Изменения по Y" />
+
+    <TextView
+        android:id="@+id/GscopeZ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Изменения по Z" />
+
+    <TextView
+        android:id="@+id/textViewMF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Magnetic Field" />
+
+    <TextView
+        android:id="@+id/MFieldX"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Изменения по X" />
+
+    <TextView
+        android:id="@+id/MFieldY"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Изменения по Y" />
+
+    <TextView
+        android:id="@+id/MFieldZ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Изменения по Z" />
+
+    <TextView
+        android:id="@+id/textViewLight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Light" />
+
+    <TextView
+        android:id="@+id/lightIndic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Показания освещенности" />
+</LinearLayout>

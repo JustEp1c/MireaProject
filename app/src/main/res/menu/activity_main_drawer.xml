@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_gallery" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_slideshow" />
+        <item
+            android:id="@+id/nav_browser"
+            android:icon="@drawable/browser"
+            android:title="Browser" />
+        <item
+            android:id="@+id/nav_calculator"
+            android:icon="@drawable/calc"
+            android:title="Calculator" />
+        <item
+            android:id="@+id/nav_mediaplayer"
+            android:icon="@drawable/music"
+            android:title="Music Player" />
+        <item
+            android:id="@+id/nav_sensors"
+            android:icon="@drawable/sensor"
+            android:title="Sensors" />
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/camera"
+            android:title="Camera" />
+        <item
+            android:id="@+id/nav_audiorecorder"
+            android:icon="@drawable/recorder"
+            android:title="Audio Recorder" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/settings"
+            android:title="Settings" />
+        <item
+            android:id="@+id/nav_stories"
+            android:icon="@drawable/book"
+            android:title="Stories" />
+        <item
+            android:id="@+id/nav_poem"
+            android:icon="@drawable/stories"
+            android:title="Poem" />
+        <item
+            android:id="@+id/nav_room"
+            android:icon="@drawable/database"
+            android:title="Student Database" />
+        <item
+            android:id="@+id/nav_maps"
+            android:icon="@drawable/maps"
+            android:title="Maps" />
+    </group>
+</menu>
