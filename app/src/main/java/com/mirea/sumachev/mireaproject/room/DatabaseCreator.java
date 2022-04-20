@@ -1,7 +1,8 @@
-/*package com.mirea.sumachev.mireaproject.room;
+package com.mirea.sumachev.mireaproject.room;
 
 import android.app.Application;
-import android.arch.persistence.room.Room;
+
+import androidx.room.Room;
 
 public class DatabaseCreator extends Application {
 
@@ -25,4 +26,3 @@ public class DatabaseCreator extends Application {
         return database;
     }
 }
-*/

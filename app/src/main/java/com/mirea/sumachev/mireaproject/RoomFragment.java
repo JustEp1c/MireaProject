@@ -11,12 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-/*
+import android.widget.EditText;
+
 
 import com.mirea.sumachev.mireaproject.room.DatabaseCreator;
 import com.mirea.sumachev.mireaproject.room.Student;
 import com.mirea.sumachev.mireaproject.room.StudentDao;
-import com.mirea.sumachev.mireaproject.room.StudentDatabase;*/
+import com.mirea.sumachev.mireaproject.room.StudentDatabase;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -76,13 +77,13 @@ public class RoomFragment extends Fragment {
         addStudent = view.findViewById(R.id.addStudentBtn);
         deleteStudent = view.findViewById(R.id.deleteStudentBtn);
 
-        //StudentDatabase db = DatabaseCreator.getInstance().getDatabase();
-        //StudentDao studentDao = db.studentDao();
+        StudentDatabase db = DatabaseCreator.getInstance().getDatabase();
+        StudentDao studentDao = db.studentDao();
 
         addStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
                 final EditText inputText = new EditText(getActivity());
                 inputText.setInputType(InputType.TYPE_CLASS_TEXT);
@@ -92,14 +93,18 @@ public class RoomFragment extends Fragment {
                         .setIcon(R.drawable.database)
                         .setPositiveButton("Далее", new DialogInterface.OnClickListener() {
 
-                        }*/
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
 
-                //Student student = new Student();
-                //student.setName("Тимофей");
-                //.setSurname("Сумачев");
-                //student.setPatronymic("Андреевич");
+                                    }
+                                });
 
-                //studentDao.insert(student);
+                Student student = new Student();
+                student.setName("Тимофей");
+                student.setSurname("Сумачев");
+                student.setPatronymic("Андреевич");
+
+                studentDao.insert(student);
             }
         });
         return view;

@@ -1,7 +1,8 @@
-/*package com.mirea.sumachev.mireaproject.room;
+package com.mirea.sumachev.mireaproject.room;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
+
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "students")
 public class Student {
@@ -49,4 +50,3 @@ public class Student {
         return patronymic;
     }
 }
-*/
