@@ -2,8 +2,11 @@ package com.mirea.sumachev.mireaproject;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +16,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -31,9 +35,26 @@ public class MapsFragment extends Fragment {
          */
         @Override
         public void onMapReady(GoogleMap googleMap) {
-            LatLng sydney = new LatLng(-34, 151);
-            googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+//            LatLng sydney = new LatLng(-34, 151);
+//            googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+//            googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+            googleMap.getUiSettings().setZoomControlsEnabled(true);
+
+            LatLng mirea_78 = new LatLng(55.670005, 37.479894);
+            LatLng mirea_86 = new LatLng(55.661445, 37.477040);
+            LatLng mirea_strominka = new LatLng(55.794295, 37.701571);
+            CameraPosition cameraPosition = new CameraPosition.Builder().target(
+                    mirea_78).zoom(12).build();
+            googleMap.animateCamera(CameraUpdateFactory
+                    .newCameraPosition(cameraPosition));
+            googleMap.addMarker(new MarkerOptions().title("РТУ МИРЭА")
+                    .snippet("просп. Вернадского, 78, 119454").position(mirea_78));
+            googleMap.addMarker(new MarkerOptions().title("РТУ МИРЭА")
+                    .snippet("просп. Вернадского, 86").position(mirea_86));
+            googleMap.addMarker(new MarkerOptions().title("РТУ МИРЭА")
+                    .snippet("улица Стромынка, 20").position(mirea_strominka));
+
         }
     };
 

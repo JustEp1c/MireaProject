@@ -5,18 +5,30 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/storyName"
+        android:id="@+id/studentID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:gravity="center"
-        android:text="Name"
-        android:textStyle="italic|bold" />
+        android:text="ID" />
 
     <TextView
         android:id="@+id/studentLast"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Text" />
+        android:text="lastName" />
+
+    <TextView
+        android:id="@+id/studentFirst"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="firstName" />
+
+    <TextView
+        android:id="@+id/studentMiddle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="middleName" />
 </LinearLayout>

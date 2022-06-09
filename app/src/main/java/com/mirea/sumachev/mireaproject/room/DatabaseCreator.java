@@ -15,7 +15,7 @@ public class DatabaseCreator extends Application {
         super.onCreate();
 
         instance = this;
-        database = Room.databaseBuilder(this, StudentDatabase.class, "StudentDatabase").build();
+        database = Room.databaseBuilder(this, StudentDatabase.class, "StudentDatabase").allowMainThreadQueries().build();
     }
 
     public static DatabaseCreator getInstance() {

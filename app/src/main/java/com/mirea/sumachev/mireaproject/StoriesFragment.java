@@ -192,7 +192,7 @@ public class StoriesFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
             TextView name = holder.itemView.findViewById(R.id.storyName);
-            TextView text = holder.itemView.findViewById(R.id.storyText);
+            TextView text = holder.itemView.findViewById(R.id.studentLast);
 
             name.setText(this.stories.get(position).getName());
             text.setText(this.stories.get(position).getText());

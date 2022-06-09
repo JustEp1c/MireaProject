@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +34,7 @@ import java.util.Date;
  * Use the {@link CameraFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CameraFragment extends Fragment implements View.OnClickListener{
+public class CameraFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -87,6 +88,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener{
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
             imageView.setImageURI(imageUri);
+            Log.i("TAG", "Картинка отобразилась");
         }
     }
 
@@ -106,27 +108,53 @@ public class CameraFragment extends Fragment implements View.OnClickListener{
             ActivityCompat.requestPermissions(getActivity(), new String[] {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     REQUEST_CODE_PERMISSION_CAMERA);
         }
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+                if (cameraIntent.resolveActivity(getActivity().getPackageManager()) != null && isWork)
+                {
+                    File photoFile;
+                    try {
+                        photoFile = createImageFile();
+                        Log.i("TAG", "Фото запомнено");
+                        //String authorities = getActivity().getApplicationContext().getPackageName() + ".fileprovider";
+                        imageUri = FileProvider.getUriForFile(getActivity(), "com.mirea.sumachev.mireaproject.fileprovider", photoFile);
+                        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                }
+                else {
+                    Log.i("TAG","Запрещено");
+                }
+            }
+        });
+
         return view;
     }
 
-    @Override
-    public void onClick(View view) {
-        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-        if (cameraIntent.resolveActivity(getActivity().getPackageManager()) != null && isWork)
-        {
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-                String authorities = getActivity().getApplicationContext().getPackageName() + ".fileprovider";
-                imageUri = FileProvider.getUriForFile(getActivity(), authorities, photoFile);
-                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            startActivityForResult(cameraIntent, CAMERA_REQUEST);
-        }
-    }
+//    @Override
+//    public void onClick(View view) {
+//        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//
+//        if (cameraIntent.resolveActivity(getActivity().getPackageManager()) != null && isWork)
+//        {
+//            File photoFile = null;
+//            try {
+//                photoFile = createImageFile();
+//                String authorities = getActivity().getApplicationContext().getPackageName() + ".fileprovider";
+//                imageUri = FileProvider.getUriForFile(getActivity(), authorities, photoFile);
+//                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            startActivityForResult(cameraIntent, CAMERA_REQUEST);
+//        }
+//    }
     private File createImageFile() throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "IMAGE_" + timeStamp + "_";
